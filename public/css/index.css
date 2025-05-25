@@ -1,0 +1,347 @@
+/* 首页特有样式 */
+
+/* 轮播图 */
+.hero-slider {
+    position: relative;
+    margin-bottom: 40px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-slide {
+    position: relative;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+}
+
+.hero-slide-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.hero-slide-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.slider-nav button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-nav button.active {
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+/* 特色内容 */
+.featured-section {
+    margin-bottom: 50px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    position: relative;
+}
+
+.section-header h2:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #3273dc;
+}
+
+.view-all {
+    font-size: 14px;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.featured-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.featured-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-image img {
+    transform: scale(1.05);
+}
+
+.featured-content {
+    padding: 20px;
+}
+
+.featured-category {
+    display: inline-block;
+    font-size: 12px;
+    color: #3273dc;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.featured-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.featured-excerpt {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.featured-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+/* 最新文章 */
+.latest-articles {
+    margin-bottom: 50px;
+}
+
+.article-row {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-image {
+    flex: 0 0 280px;
+    overflow: hidden;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-row:hover .article-image img {
+    transform: scale(1.05);
+}
+
+.article-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.article-category {
+    display: inline-block;
+    font-size: 12px;
+    color: #3273dc;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.article-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.article-excerpt {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.article-author {
+    display: flex;
+    align-items: center;
+}
+
+.article-author img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* 专题推荐 */
+.topics-section {
+    margin-bottom: 50px;
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.topic-card {
+    position: relative;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topic-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.topic-card:hover img {
+    transform: scale(1.05);
+}
+
+.topic-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+}
+
+.topic-overlay h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.topic-overlay p {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slide {
+        height: 350px;
+    }
+    
+    .hero-slide-content h2 {
+        font-size: 24px;
+    }
+    
+    .hero-slide-content p {
+        font-size: 16px;
+    }
+    
+    .article-row {
+        flex-direction: column;
+    }
+    
+    .article-image {
+        flex: 0 0 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-slide {
+        height: 250px;
+    }
+}

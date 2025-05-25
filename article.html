@@ -1,63 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vue3 组合式 API 实战指南 - 技术博客</title>
-    <link rel="stylesheet" href="public/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="public/css/style.css" />
+    link rel="stylesheet" href="public/css/article.css">
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="public/images/logo.png" alt="技术博客">
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="articles.html" class="active">文章</a></li>
-                    <li><a href="topic.html">专题</a></li>
-                    <li><a href="member.html">会员中心</a></li>
-                </ul>
-            </nav>
-            <div class="user-actions">
-                <button id="login-btn" class="btn">登录</button>
-                <button id="register-btn" class="btn btn-primary">注册</button>
-            </div>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="public/images/logo.png" alt="技术博客" />
+          </a>
         </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="articles.html" class="active">文章</a></li>
+            <li><a href="topic.html">专题</a></li>
+            <li><a href="member.html">会员中心</a></li>
+          </ul>
+        </nav>
+        <div class="user-actions">
+          <button id="login-btn" class="btn">登录</button>
+          <button id="register-btn" class="btn btn-primary">注册</button>
+        </div>
+      </div>
     </header>
 
     <div class="article-header">
-        <div class="container">
-            <div class="article-category">前端开发</div>
-            <h1 class="article-title">Vue3 组合式 API 实战指南</h1>
-            <div class="article-meta">
-                <div class="author">
-                    <img src="public/images/avatar.png" alt="作者头像">
-                    <span>张三</span>
-                </div>
-                <div class="publish-info">
-                    <span class="date">2023-05-15</span>
-                    <span class="views">1024 阅读</span>
-                    <span class="comments">32 评论</span>
-                </div>
-            </div>
+      <div class="container">
+        <div class="article-category">前端开发</div>
+        <h1 class="article-title">Vue3 组合式 API 实战指南</h1>
+        <div class="article-meta">
+          <div class="author">
+            <img src="public/images/avatar.png" alt="作者头像" />
+            <span>张三</span>
+          </div>
+          <div class="publish-info">
+            <span class="date">2023-05-15</span>
+            <span class="views">1024 阅读</span>
+            <span class="comments">32 评论</span>
+          </div>
         </div>
+      </div>
     </div>
 
     <main class="article-container">
-        <div class="container">
-            <article class="article-content">
-                <p class="article-intro">Vue3 的组合式 API 是一种全新的编写 Vue 组件的方式，它允许我们使用函数而非选项来组织组件逻辑。本文将深入探讨组合式 API 的核心概念和实战应用。</p>
-                
-                <img src="public/images/article-banner.jpg" alt="Vue3 组合式 API" class="article-banner">
-                
-                <h2>1. 组合式 API 的基本概念</h2>
-                <p>组合式 API (Composition API) 是 Vue3 中引入的一种新的组件逻辑组织方式，它允许我们将组件的逻辑按照功能进行分组，而不是按照选项类型。这种方式使得代码更加灵活和可复用。</p>
-                
-                <pre><code class="language-javascript">
+      <div class="container">
+        <article class="article-content">
+          <p class="article-intro">
+            Vue3 的组合式 API 是一种全新的编写 Vue
+            组件的方式，它允许我们使用函数而非选项来组织组件逻辑。本文将深入探讨组合式
+            API 的核心概念和实战应用。
+          </p>
+
+          <img
+            src="public/images/article-banner.jpg"
+            alt="Vue3 组合式 API"
+            class="article-banner"
+          />
+
+          <h2>1. 组合式 API 的基本概念</h2>
+          <p>
+            组合式 API (Composition API) 是 Vue3
+            中引入的一种新的组件逻辑组织方式，它允许我们将组件的逻辑按照功能进行分组，而不是按照选项类型。这种方式使得代码更加灵活和可复用。
+          </p>
+
+          <pre><code class="language-javascript">
 import { ref, computed, onMounted } from 'vue'
 
 export default {
@@ -87,20 +99,23 @@ export default {
   }
 }
                 </code></pre>
-                
-                <h2>2. 响应式系统</h2>
-                <p>Vue3 的响应式系统是基于 ES6 的 Proxy 实现的，相比 Vue2 基于 Object.defineProperty 的实现，它有以下优势：</p>
-                
-                <ul>
-                    <li>可以监听数组索引和对象属性的变化</li>
-                    <li>可以监听属性的添加和删除</li>
-                    <li>可以监听 Map、Set、WeakMap 和 WeakSet</li>
-                </ul>
-                
-                <h2>3. 生命周期钩子</h2>
-                <p>在组合式 API 中，生命周期钩子需要在 setup() 函数中导入和调用：</p>
-                
-                <pre><code class="language-javascript">
+
+          <h2>2. 响应式系统</h2>
+          <p>
+            Vue3 的响应式系统是基于 ES6 的 Proxy 实现的，相比 Vue2 基于
+            Object.defineProperty 的实现，它有以下优势：
+          </p>
+
+          <ul>
+            <li>可以监听数组索引和对象属性的变化</li>
+            <li>可以监听属性的添加和删除</li>
+            <li>可以监听 Map、Set、WeakMap 和 WeakSet</li>
+          </ul>
+
+          <h2>3. 生命周期钩子</h2>
+          <p>在组合式 API 中，生命周期钩子需要在 setup() 函数中导入和调用：</p>
+
+          <pre><code class="language-javascript">
 import { onMounted, onUpdated, onUnmounted } from 'vue'
 
 export default {
@@ -119,11 +134,14 @@ export default {
   }
 }
                 </code></pre>
-                
-                <h2>4. 实战案例：构建一个待办事项应用</h2>
-                <p>下面我们将使用组合式 API 构建一个简单的待办事项应用，展示如何组织和复用逻辑：</p>
-                
-                <pre><code class="language-javascript">
+
+          <h2>4. 实战案例：构建一个待办事项应用</h2>
+          <p>
+            下面我们将使用组合式 API
+            构建一个简单的待办事项应用，展示如何组织和复用逻辑：
+          </p>
+
+          <pre><code class="language-javascript">
 // useTodos.js - 可复用的逻辑
 import { ref, computed } from 'vue'
 
@@ -172,10 +190,10 @@ export function useTodos() {
   }
 }
                 </code></pre>
-                
-                <p>然后在组件中使用这个可复用的逻辑：</p>
-                
-                <pre><code class="language-javascript">
+
+          <p>然后在组件中使用这个可复用的逻辑：</p>
+
+          <pre><code class="language-javascript">
 // TodoApp.vue
 import { useTodos } from './useTodos'
 
@@ -203,224 +221,244 @@ export default {
   }
 }
                 </code></pre>
-                
-                <h2>5. 总结</h2>
-                <p>Vue3 的组合式 API 为我们提供了更灵活、更强大的组件逻辑组织方式。通过将相关逻辑组合在一起，我们可以更好地复用代码，提高开发效率。</p>
-                
-                <p>虽然组合式 API 有一定的学习曲线，但一旦掌握，它将极大地提升我们的开发体验和代码质量。</p>
-                
-                <div class="article-tags">
-                    <span class="tag">Vue3</span>
-                    <span class="tag">前端开发</span>
-                    <span class="tag">JavaScript</span>
-                </div>
-            </article>
-            
-            <div class="article-actions">
-                <div class="like-share">
-                    <button class="btn-like"><i class="icon-heart"></i> 点赞 (42)</button>
-                    <button class="btn-share"><i class="icon-share"></i> 分享</button>
-                </div>
-                <div class="article-navigation">
-                    <a href="article.html" class="prev-article">
-                        <i class="icon-arrow-left"></i>
-                        <span>上一篇：JavaScript 异步编程详解</span>
-                    </a>
-                    <a href="article.html" class="next-article">
-                        <span>下一篇：TypeScript 高级类型系统</span>
-                        <i class="icon-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="author-info">
-                <div class="author-avatar">
-                    <img src="public/images/avatar.png" alt="作者头像">
-                </div>
-                <div class="author-bio">
-                    <h3>张三</h3>
-                    <p>资深前端工程师，拥有8年 Web 开发经验，专注于 Vue 和 React 生态系统。热爱分享技术知识和经验。</p>
-                    <div class="author-social">
-                        <a href="#"><i class="icon-github"></i></a>
-                        <a href="#"><i class="icon-twitter"></i></a>
-                        <a href="#"><i class="icon-linkedin"></i></a>
-                    </div>
-                </div>
-                <a href="#" class="btn btn-outline">查看作者所有文章</a>
-            </div>
-            
-            <div class="related-articles">
-                <h3>相关文章</h3>
-                <div class="article-grid">
-                    <div class="article-card small">
-                        <div class="article-image">
-                            <img src="public/images/related1.jpg" alt="相关文章">
-                        </div>
-                        <div class="article-content">
-                            <h4><a href="article.html">Vue3 性能优化实践</a></h4>
-                            <div class="article-meta">
-                                <span class="date">2023-04-20</span>
-                                <span class="views">768 阅读</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="article-card small">
-                        <div class="article-image">
-                            <img src="public/images/related2.jpg" alt="相关文章">
-                        </div>
-                        <div class="article-content">
-                            <h4><a href="article.html">从 Vue2 迁移到 Vue3 的最佳实践</a></h4>
-                            <div class="article-meta">
-                                <span class="date">2023-03-15</span>
-                                <span class="views">912 阅读</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="article-card small">
-                        <div class="article-image">
-                            <img src="public/images/related3.jpg" alt="相关文章">
-                        </div>
-                        <div class="article-content">
-                            <h4><a href="article.html">Vue3 与 TypeScript 结合使用指南</a></h4>
-                            <div class="article-meta">
-                                <span class="date">2023-02-28</span>
-                                <span class="views">645 阅读</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="comments-section">
-                <h3>评论 (32)</h3>
-                <div class="comment-form">
-                    <textarea placeholder="写下你的评论..."></textarea>
-                    <button class="btn btn-primary">发表评论</button>
-                </div>
-                
-                <div class="comments-list">
-                    <div class="comment">
-                        <div class="comment-avatar">
-                            <img src="public/images/user1.jpg" alt="用户头像">
-                        </div>
-                        <div class="comment-content">
-                            <div class="comment-header">
-                                <h4>李明</h4>
-                                <span class="comment-date">2023-05-16 10:23</span>
-                            </div>
-                            <p>非常详细的教程，对我理解 Vue3 组合式 API 帮助很大，特别是关于逻辑复用的部分，解决了我项目中遇到的问题。</p>
-                            <div class="comment-actions">
-                                <button class="btn-reply">回复</button>
-                                <button class="btn-like">点赞 (5)</button>
-                            </div>
-                            
-                            <div class="comment-replies">
-                                <div class="comment">
-                                    <div class="comment-avatar">
-                                        <img src="public/images/avatar.png" alt="作者头像">
-                                    </div>
-                                    <div class="comment-content">
-                                        <div class="comment-header">
-                                            <h4>张三 (作者)</h4>
-                                            <span class="comment-date">2023-05-16 11:05</span>
-                                        </div>
-                                        <p>谢谢支持！如果有任何问题，欢迎继续交流。</p>
-                                        <div class="comment-actions">
-                                            <button class="btn-reply">回复</button>
-                                            <button class="btn-like">点赞 (2)</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="comment">
-                        <div class="comment-avatar">
-                            <img src="public/images/user2.jpg" alt="用户头像">
-                        </div>
-                        <div class="comment-content">
-                            <div class="comment-header">
-                                <h4>王芳</h4>
-                                <span class="comment-date">2023-05-15 16:42</span>
-                            </div>
-                            <p>请问在大型项目中，如何更好地组织这些可复用的逻辑？是按功能模块分文件夹还是有其他推荐的方式？</p>
-                            <div class="comment-actions">
-                                <button class="btn-reply">回复</button>
-                                <button class="btn-like">点赞 (3)</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="load-more">
-                        <button class="btn btn-outline">加载更多评论</button>
-                    </div>
-                </div>
-            </div>
+
+          <h2>5. 总结</h2>
+          <p>
+            Vue3 的组合式 API
+            为我们提供了更灵活、更强大的组件逻辑组织方式。通过将相关逻辑组合在一起，我们可以更好地复用代码，提高开发效率。
+          </p>
+
+          <p>
+            虽然组合式 API
+            有一定的学习曲线，但一旦掌握，它将极大地提升我们的开发体验和代码质量。
+          </p>
+
+          <div class="article-tags">
+            <span class="tag">Vue3</span>
+            <span class="tag">前端开发</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+
+        <div class="article-actions">
+          <div class="like-share">
+            <button class="btn-like">
+              <i class="icon-heart"></i> 点赞 (42)
+            </button>
+            <button class="btn-share"><i class="icon-share"></i> 分享</button>
+          </div>
+          <div class="article-navigation">
+            <a href="article.html" class="prev-article">
+              <i class="icon-arrow-left"></i>
+              <span>上一篇：JavaScript 异步编程详解</span>
+            </a>
+            <a href="article.html" class="next-article">
+              <span>下一篇：TypeScript 高级类型系统</span>
+              <i class="icon-arrow-right"></i>
+            </a>
+          </div>
         </div>
+
+        <div class="author-info">
+          <div class="author-avatar">
+            <img src="public/images/avatar.png" alt="作者头像" />
+          </div>
+          <div class="author-bio">
+            <h3>张三</h3>
+            <p>
+              资深前端工程师，拥有8年 Web 开发经验，专注于 Vue 和 React
+              生态系统。热爱分享技术知识和经验。
+            </p>
+            <div class="author-social">
+              <a href="#"><i class="icon-github"></i></a>
+              <a href="#"><i class="icon-twitter"></i></a>
+              <a href="#"><i class="icon-linkedin"></i></a>
+            </div>
+          </div>
+          <a href="#" class="btn btn-outline">查看作者所有文章</a>
+        </div>
+
+        <div class="related-articles">
+          <h3>相关文章</h3>
+          <div class="article-grid">
+            <div class="article-card small">
+              <div class="article-image">
+                <img src="public/images/related1.jpg" alt="相关文章" />
+              </div>
+              <div class="article-content">
+                <h4><a href="article.html">Vue3 性能优化实践</a></h4>
+                <div class="article-meta">
+                  <span class="date">2023-04-20</span>
+                  <span class="views">768 阅读</span>
+                </div>
+              </div>
+            </div>
+            <div class="article-card small">
+              <div class="article-image">
+                <img src="public/images/related2.jpg" alt="相关文章" />
+              </div>
+              <div class="article-content">
+                <h4>
+                  <a href="article.html">从 Vue2 迁移到 Vue3 的最佳实践</a>
+                </h4>
+                <div class="article-meta">
+                  <span class="date">2023-03-15</span>
+                  <span class="views">912 阅读</span>
+                </div>
+              </div>
+            </div>
+            <div class="article-card small">
+              <div class="article-image">
+                <img src="public/images/related3.jpg" alt="相关文章" />
+              </div>
+              <div class="article-content">
+                <h4>
+                  <a href="article.html">Vue3 与 TypeScript 结合使用指南</a>
+                </h4>
+                <div class="article-meta">
+                  <span class="date">2023-02-28</span>
+                  <span class="views">645 阅读</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comments-section">
+          <h3>评论 (32)</h3>
+          <div class="comment-form">
+            <textarea placeholder="写下你的评论..."></textarea>
+            <button class="btn btn-primary">发表评论</button>
+          </div>
+
+          <div class="comments-list">
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="public/images/user1.jpg" alt="用户头像" />
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <h4>李明</h4>
+                  <span class="comment-date">2023-05-16 10:23</span>
+                </div>
+                <p>
+                  非常详细的教程，对我理解 Vue3 组合式 API
+                  帮助很大，特别是关于逻辑复用的部分，解决了我项目中遇到的问题。
+                </p>
+                <div class="comment-actions">
+                  <button class="btn-reply">回复</button>
+                  <button class="btn-like">点赞 (5)</button>
+                </div>
+
+                <div class="comment-replies">
+                  <div class="comment">
+                    <div class="comment-avatar">
+                      <img src="public/images/avatar.png" alt="作者头像" />
+                    </div>
+                    <div class="comment-content">
+                      <div class="comment-header">
+                        <h4>张三 (作者)</h4>
+                        <span class="comment-date">2023-05-16 11:05</span>
+                      </div>
+                      <p>谢谢支持！如果有任何问题，欢迎继续交流。</p>
+                      <div class="comment-actions">
+                        <button class="btn-reply">回复</button>
+                        <button class="btn-like">点赞 (2)</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="comment">
+              <div class="comment-avatar">
+                <img src="public/images/user2.jpg" alt="用户头像" />
+              </div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <h4>王芳</h4>
+                  <span class="comment-date">2023-05-15 16:42</span>
+                </div>
+                <p>
+                  请问在大型项目中，如何更好地组织这些可复用的逻辑？是按功能模块分文件夹还是有其他推荐的方式？
+                </p>
+                <div class="comment-actions">
+                  <button class="btn-reply">回复</button>
+                  <button class="btn-like">点赞 (3)</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="load-more">
+              <button class="btn btn-outline">加载更多评论</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="public/images/logo.png" alt="技术博客">
-                    <p>分享技术，成就未来</p>
-                </div>
-                <div class="footer-links">
-                    <h3>快速链接</h3>
-                    <ul>
-                        <li><a href="index.html">首页</a></li>
-                        <li><a href="articles.html">文章</a></li>
-                        <li><a href="topic.html">专题</a></li>
-                        <li><a href="member.html">会员中心</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>联系我们</h3>
-                    <p>邮箱：contact@techblog.com</p>
-                    <p>微信公众号：技术博客</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="icon-weibo"></i></a>
-                        <a href="#"><i class="icon-wechat"></i></a>
-                        <a href="#"><i class="icon-github"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <img src="public/images/logo.png" alt="技术博客" />
+            <p>分享技术，成就未来</p>
+          </div>
+          <div class="footer-links">
+            <h3>快速链接</h3>
+            <ul>
+              <li><a href="index.html">首页</a></li>
+              <li><a href="articles.html">文章</a></li>
+              <li><a href="topic.html">专题</a></li>
+              <li><a href="member.html">会员中心</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>联系我们</h3>
+            <p>邮箱：contact@techblog.com</p>
+            <p>微信公众号：技术博客</p>
+            <div class="social-icons">
+              <a href="#"><i class="icon-weibo"></i></a>
+              <a href="#"><i class="icon-wechat"></i></a>
+              <a href="#"><i class="icon-github"></i></a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 技术博客. 保留所有权利.</p>
-            </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 技术博客. 保留所有权利.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- 登录弹窗 -->
     <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>登录</h2>
-            <form id="login-form">
-                <div class="form-group">
-                    <label for="username">用户名</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">密码</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">记住我</label>
-                    <a href="#" class="forgot-password">忘记密码?</a>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">登录</button>
-            </form>
-            <div class="modal-footer">
-                <p>还没有账号? <a href="#" id="show-register">立即注册</a></p>
-            </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>登录</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group remember-me">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember">记住我</label>
+            <a href="#" class="forgot-password">忘记密码?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">登录</button>
+        </form>
+        <div class="modal-footer">
+          <p>还没有账号? <a href="#" id="show-register">立即注册</a></p>
         </div>
+      </div>
     </div>
 
     <script src="public/js/main.js"></script>
     <script src="public/js/login.js"></script>
-</body>
+  </body>
 </html>
