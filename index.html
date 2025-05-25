@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术博客 - 首页</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="public/images/logo.png" alt="技术博客">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="articles.html">文章</a></li>
+                    <li><a href="topic.html">专题</a></li>
+                    <li><a href="member.html">会员中心</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button id="login-btn" class="btn">登录</button>
+                <button id="register-btn" class="btn btn-primary">注册</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <h1>探索技术的奥秘</h1>
+                <p>分享最新的技术动态、编程教程和开发心得</p>
+                <a href="articles.html" class="btn btn-primary">开始阅读</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-articles">
+        <div class="container">
+            <h2 class="section-title">精选文章</h2>
+            <div class="article-grid">
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="public/images/article1.jpg" alt="文章图片">
+                    </div>
+                    <div class="article-content">
+                        <span class="category">前端开发</span>
+                        <h3><a href="article.html">Vue3 组合式 API 实战指南</a></h3>
+                        <p>探索 Vue3 组合式 API 的强大功能，学习如何构建更灵活、可维护的前端应用...</p>
+                        <div class="article-meta">
+                            <span class="author">张三</span>
+                            <span class="date">2023-05-15</span>
+                            <span class="views">1024 阅读</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="public/images/article2.jpg" alt="文章图片">
+                    </div>
+                    <div class="article-content">
+                        <span class="category">后端开发</span>
+                        <h3><a href="article.html">Spring Boot 微服务架构设计</a></h3>
+                        <p>从零开始构建基于 Spring Boot 的微服务架构，包括服务发现、配置中心、API 网关等核心组件...</p>
+                        <div class="article-meta">
+                            <span class="author">李四</span>
+                            <span class="date">2023-05-10</span>
+                            <span class="views">856 阅读</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="public/images/article3.jpg" alt="文章图片">
+                    </div>
+                    <div class="article-content">
+                        <span class="category">人工智能</span>
+                        <h3><a href="article.html">深度学习在图像识别中的应用</a></h3>
+                        <p>详解卷积神经网络在图像识别领域的应用，从理论到实践的全面指南...</p>
+                        <div class="article-meta">
+                            <span class="author">王五</span>
+                            <span class="date">2023-05-05</span>
+                            <span class="views">732 阅读</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="articles.html" class="btn">查看更多文章</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="topics">
+        <div class="container">
+            <h2 class="section-title">热门专题</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="icon-react"></i>
+                    </div>
+                    <h3><a href="topic.html">React 全栈开发</a></h3>
+                    <p>15 篇文章</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="icon-python"></i>
+                    </div>
+                    <h3><a href="topic.html">Python 数据分析</a></h3>
+                    <p>12 篇文章</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="icon-cloud"></i>
+                    </div>
+                    <h3><a href="topic.html">云原生架构</a></h3>
+                    <p>9 篇文章</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="icon-mobile"></i>
+                    </div>
+                    <h3><a href="topic.html">移动应用开发</a></h3>
+                    <p>11 篇文章</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>订阅我们的技术周刊</h2>
+                <p>每周获取最新的技术文章和教程，不错过任何重要更新</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="输入您的邮箱地址">
+                    <button type="submit" class="btn btn-primary">订阅</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="public/images/logo.png" alt="技术博客">
+                    <p>分享技术，成就未来</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="articles.html">文章</a></li>
+                        <li><a href="topic.html">专题</a></li>
+                        <li><a href="member.html">会员中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <p>邮箱：contact@techblog.com</p>
+                    <p>微信公众号：技术博客</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="icon-weibo"></i></a>
+                        <a href="#"><i class="icon-wechat"></i></a>
+                        <a href="#"><i class="icon-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 技术博客. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 登录弹窗 -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>登录</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">记住我</label>
+                    <a href="#" class="forgot-password">忘记密码?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">登录</button>
+            </form>
+            <div class="modal-footer">
+                <p>还没有账号? <a href="#" id="show-register">立即注册</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/js/main.js"></script>
+    <script src="public/js/login.js"></script>
+</body>
+</html>
