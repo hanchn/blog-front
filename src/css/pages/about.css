@@ -1,0 +1,155 @@
+/* 关于头部 */
+.about-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-title {
+    font-size: var(--font-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.page-description {
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 关于内容 */
+.about-content {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.about-section {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-title {
+    font-size: var(--font-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-text {
+    color: var(--text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
+.about-text p {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* 使命卡片 */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.mission-card {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal);
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-2xl);
+    color: var(--primary-color);
+    margin: 0 auto var(--spacing-lg);
+}
+
+.mission-card h3 {
+    font-size: var(--font-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.mission-card p {
+    color: var(--text-secondary);
+}
+
+/* 加入我们 */
+.join-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.join-text {
+    color: var(--text-secondary);
+}
+
+.join-list {
+    margin: var(--spacing-lg) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.join-list li {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.join-list li::before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.join-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: var(--font-2xl);
+    }
+
+    .page-description {
+        font-size: var(--font-md);
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .join-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .join-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+} 

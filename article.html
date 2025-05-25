@@ -1,464 +1,330 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue3 组合式 API 实战指南 - 技术博客</title>
-    <link rel="stylesheet" href="public/css/style.css" />
-    link rel="stylesheet" href="public/css/article.css">
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="public/images/logo.png" alt="技术博客" />
-          </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章标题 - AUVWEB</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <span class="logo-text">AUVWEB</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">首页</a>
+                <a href="/articles.html" class="nav-link">文章</a>
+                <a href="/topics.html" class="nav-link">专题</a>
+                <a href="/about.html" class="nav-link">关于</a>
+            </nav>
+            <div class="user-actions">
+                <!-- 未登录状态 -->
+                <div class="user-actions-guest">
+                    <button class="btn btn-text" id="loginBtn">登录</button>
+                    <button class="btn btn-primary" id="registerBtn">注册</button>
+                </div>
+                <!-- 已登录状态 -->
+                <div class="user-actions-logged" style="display: none;">
+                    <div class="user-avatar-wrapper">
+                        <img src="https://picsum.photos/40/40?random=1" alt="用户头像" class="user-avatar">
+                        <div class="user-dropdown">
+                            <a href="#" class="dropdown-item"><i class="fas fa-user"></i> 个人主页</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> 设置</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> 退出</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">首页</a></li>
-            <li><a href="articles.html" class="active">文章</a></li>
-            <li><a href="topic.html">专题</a></li>
-            <li><a href="member.html">会员中心</a></li>
-          </ul>
-        </nav>
-        <div class="user-actions">
-          <button id="login-btn" class="btn">登录</button>
-          <button id="register-btn" class="btn btn-primary">注册</button>
-        </div>
-      </div>
     </header>
 
-    <div class="article-header">
-      <div class="container">
-        <div class="article-category">前端开发</div>
-        <h1 class="article-title">Vue3 组合式 API 实战指南</h1>
-        <div class="article-meta">
-          <div class="author">
-            <img src="public/images/avatar.png" alt="作者头像" />
-            <span>张三</span>
-          </div>
-          <div class="publish-info">
-            <span class="date">2023-05-15</span>
-            <span class="views">1024 阅读</span>
-            <span class="comments">32 评论</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <main class="article-container">
-      <div class="container">
-        <article class="article-content">
-          <p class="article-intro">
-            Vue3 的组合式 API 是一种全新的编写 Vue
-            组件的方式，它允许我们使用函数而非选项来组织组件逻辑。本文将深入探讨组合式
-            API 的核心概念和实战应用。
-          </p>
-
-          <img
-            src="public/images/article-banner.jpg"
-            alt="Vue3 组合式 API"
-            class="article-banner"
-          />
-
-          <h2>1. 组合式 API 的基本概念</h2>
-          <p>
-            组合式 API (Composition API) 是 Vue3
-            中引入的一种新的组件逻辑组织方式，它允许我们将组件的逻辑按照功能进行分组，而不是按照选项类型。这种方式使得代码更加灵活和可复用。
-          </p>
-
-          <pre><code class="language-javascript">
-import { ref, computed, onMounted } from 'vue'
-
-export default {
-  setup() {
-    // 响应式状态
-    const count = ref(0)
-    
-    // 计算属性
-    const doubleCount = computed(() => count.value * 2)
-    
-    // 方法
-    function increment() {
-      count.value++
-    }
-    
-    // 生命周期钩子
-    onMounted(() => {
-      console.log('组件已挂载')
-    })
-    
-    // 暴露给模板
-    return {
-      count,
-      doubleCount,
-      increment
-    }
-  }
-}
-                </code></pre>
-
-          <h2>2. 响应式系统</h2>
-          <p>
-            Vue3 的响应式系统是基于 ES6 的 Proxy 实现的，相比 Vue2 基于
-            Object.defineProperty 的实现，它有以下优势：
-          </p>
-
-          <ul>
-            <li>可以监听数组索引和对象属性的变化</li>
-            <li>可以监听属性的添加和删除</li>
-            <li>可以监听 Map、Set、WeakMap 和 WeakSet</li>
-          </ul>
-
-          <h2>3. 生命周期钩子</h2>
-          <p>在组合式 API 中，生命周期钩子需要在 setup() 函数中导入和调用：</p>
-
-          <pre><code class="language-javascript">
-import { onMounted, onUpdated, onUnmounted } from 'vue'
-
-export default {
-  setup() {
-    onMounted(() => {
-      console.log('组件已挂载')
-    })
-    
-    onUpdated(() => {
-      console.log('组件已更新')
-    })
-    
-    onUnmounted(() => {
-      console.log('组件已卸载')
-    })
-  }
-}
-                </code></pre>
-
-          <h2>4. 实战案例：构建一个待办事项应用</h2>
-          <p>
-            下面我们将使用组合式 API
-            构建一个简单的待办事项应用，展示如何组织和复用逻辑：
-          </p>
-
-          <pre><code class="language-javascript">
-// useTodos.js - 可复用的逻辑
-import { ref, computed } from 'vue'
-
-export function useTodos() {
-  const todos = ref([])
-  const newTodo = ref('')
-  
-  const completedTodos = computed(() => {
-    return todos.value.filter(todo => todo.completed)
-  })
-  
-  const incompleteTodos = computed(() => {
-    return todos.value.filter(todo => !todo.completed)
-  })
-  
-  function addTodo() {
-    if (newTodo.value.trim()) {
-      todos.value.push({
-        id: Date.now(),
-        text: newTodo.value,
-        completed: false
-      })
-      newTodo.value = ''
-    }
-  }
-  
-  function toggleTodo(id) {
-    const todo = todos.value.find(todo => todo.id === id)
-    if (todo) {
-      todo.completed = !todo.completed
-    }
-  }
-  
-  function removeTodo(id) {
-    todos.value = todos.value.filter(todo => todo.id !== id)
-  }
-  
-  return {
-    todos,
-    newTodo,
-    completedTodos,
-    incompleteTodos,
-    addTodo,
-    toggleTodo,
-    removeTodo
-  }
-}
-                </code></pre>
-
-          <p>然后在组件中使用这个可复用的逻辑：</p>
-
-          <pre><code class="language-javascript">
-// TodoApp.vue
-import { useTodos } from './useTodos'
-
-export default {
-  setup() {
-    const {
-      todos,
-      newTodo,
-      completedTodos,
-      incompleteTodos,
-      addTodo,
-      toggleTodo,
-      removeTodo
-    } = useTodos()
-    
-    return {
-      todos,
-      newTodo,
-      completedTodos,
-      incompleteTodos,
-      addTodo,
-      toggleTodo,
-      removeTodo
-    }
-  }
-}
-                </code></pre>
-
-          <h2>5. 总结</h2>
-          <p>
-            Vue3 的组合式 API
-            为我们提供了更灵活、更强大的组件逻辑组织方式。通过将相关逻辑组合在一起，我们可以更好地复用代码，提高开发效率。
-          </p>
-
-          <p>
-            虽然组合式 API
-            有一定的学习曲线，但一旦掌握，它将极大地提升我们的开发体验和代码质量。
-          </p>
-
-          <div class="article-tags">
-            <span class="tag">Vue3</span>
-            <span class="tag">前端开发</span>
-            <span class="tag">JavaScript</span>
-          </div>
-        </article>
-
-        <div class="article-actions">
-          <div class="like-share">
-            <button class="btn-like">
-              <i class="icon-heart"></i> 点赞 (42)
-            </button>
-            <button class="btn-share"><i class="icon-share"></i> 分享</button>
-          </div>
-          <div class="article-navigation">
-            <a href="article.html" class="prev-article">
-              <i class="icon-arrow-left"></i>
-              <span>上一篇：JavaScript 异步编程详解</span>
-            </a>
-            <a href="article.html" class="next-article">
-              <span>下一篇：TypeScript 高级类型系统</span>
-              <i class="icon-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="author-info">
-          <div class="author-avatar">
-            <img src="public/images/avatar.png" alt="作者头像" />
-          </div>
-          <div class="author-bio">
-            <h3>张三</h3>
-            <p>
-              资深前端工程师，拥有8年 Web 开发经验，专注于 Vue 和 React
-              生态系统。热爱分享技术知识和经验。
-            </p>
-            <div class="author-social">
-              <a href="#"><i class="icon-github"></i></a>
-              <a href="#"><i class="icon-twitter"></i></a>
-              <a href="#"><i class="icon-linkedin"></i></a>
-            </div>
-          </div>
-          <a href="#" class="btn btn-outline">查看作者所有文章</a>
-        </div>
-
-        <div class="related-articles">
-          <h3>相关文章</h3>
-          <div class="article-grid">
-            <div class="article-card small">
-              <div class="article-image">
-                <img src="public/images/related1.jpg" alt="相关文章" />
-              </div>
-              <div class="article-content">
-                <h4><a href="article.html">Vue3 性能优化实践</a></h4>
+    <!-- 主要内容 -->
+    <main class="page-content">
+        <div class="container">
+            <!-- 文章头部 -->
+            <header class="article-header">
+                <h1 class="article-title">深入理解 JavaScript 异步编程</h1>
                 <div class="article-meta">
-                  <span class="date">2023-04-20</span>
-                  <span class="views">768 阅读</span>
-                </div>
-              </div>
-            </div>
-            <div class="article-card small">
-              <div class="article-image">
-                <img src="public/images/related2.jpg" alt="相关文章" />
-              </div>
-              <div class="article-content">
-                <h4>
-                  <a href="article.html">从 Vue2 迁移到 Vue3 的最佳实践</a>
-                </h4>
-                <div class="article-meta">
-                  <span class="date">2023-03-15</span>
-                  <span class="views">912 阅读</span>
-                </div>
-              </div>
-            </div>
-            <div class="article-card small">
-              <div class="article-image">
-                <img src="public/images/related3.jpg" alt="相关文章" />
-              </div>
-              <div class="article-content">
-                <h4>
-                  <a href="article.html">Vue3 与 TypeScript 结合使用指南</a>
-                </h4>
-                <div class="article-meta">
-                  <span class="date">2023-02-28</span>
-                  <span class="views">645 阅读</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="comments-section">
-          <h3>评论 (32)</h3>
-          <div class="comment-form">
-            <textarea placeholder="写下你的评论..."></textarea>
-            <button class="btn btn-primary">发表评论</button>
-          </div>
-
-          <div class="comments-list">
-            <div class="comment">
-              <div class="comment-avatar">
-                <img src="public/images/user1.jpg" alt="用户头像" />
-              </div>
-              <div class="comment-content">
-                <div class="comment-header">
-                  <h4>李明</h4>
-                  <span class="comment-date">2023-05-16 10:23</span>
-                </div>
-                <p>
-                  非常详细的教程，对我理解 Vue3 组合式 API
-                  帮助很大，特别是关于逻辑复用的部分，解决了我项目中遇到的问题。
-                </p>
-                <div class="comment-actions">
-                  <button class="btn-reply">回复</button>
-                  <button class="btn-like">点赞 (5)</button>
-                </div>
-
-                <div class="comment-replies">
-                  <div class="comment">
-                    <div class="comment-avatar">
-                      <img src="public/images/avatar.png" alt="作者头像" />
+                    <div class="author">
+                        <img src="https://picsum.photos/100/100?random=1" alt="作者头像" class="author-avatar">
+                        <span class="author-name">张三</span>
                     </div>
-                    <div class="comment-content">
-                      <div class="comment-header">
-                        <h4>张三 (作者)</h4>
-                        <span class="comment-date">2023-05-16 11:05</span>
-                      </div>
-                      <p>谢谢支持！如果有任何问题，欢迎继续交流。</p>
-                      <div class="comment-actions">
-                        <button class="btn-reply">回复</button>
-                        <button class="btn-like">点赞 (2)</button>
-                      </div>
+                    <div class="article-info">
+                        <span><i class="fas fa-calendar"></i> 2024-03-15</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间：15分钟</span>
+                        <span><i class="fas fa-eye"></i> 1.2k 阅读</span>
+                        <span><i class="fas fa-comments"></i> 23 评论</span>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
+            </header>
 
-            <div class="comment">
-              <div class="comment-avatar">
-                <img src="public/images/user2.jpg" alt="用户头像" />
-              </div>
-              <div class="comment-content">
-                <div class="comment-header">
-                  <h4>王芳</h4>
-                  <span class="comment-date">2023-05-15 16:42</span>
-                </div>
-                <p>
-                  请问在大型项目中，如何更好地组织这些可复用的逻辑？是按功能模块分文件夹还是有其他推荐的方式？
-                </p>
-                <div class="comment-actions">
-                  <button class="btn-reply">回复</button>
-                  <button class="btn-like">点赞 (3)</button>
-                </div>
-              </div>
-            </div>
+            <!-- 文章内容 -->
+            <article class="article-content">
+                <p>在当今的 Web 开发中，异步编程已经成为了不可或缺的一部分。本文将深入探讨 JavaScript 中的异步编程模式，帮助你更好地理解和应用这些概念。</p>
 
-            <div class="load-more">
-              <button class="btn btn-outline">加载更多评论</button>
-            </div>
-          </div>
+                <h2>1. 回调函数（Callbacks）</h2>
+                <p>回调函数是 JavaScript 中最基础的异步编程方式。让我们看一个简单的例子：</p>
+                <pre><code>function fetchData(callback) {
+    setTimeout(() => {
+        const data = { id: 1, name: 'Example' };
+        callback(data);
+    }, 1000);
+}
+
+fetchData((data) => {
+    console.log(data);
+});</code></pre>
+
+                <h2>2. Promise</h2>
+                <p>Promise 是 ES6 引入的异步编程解决方案，它提供了更优雅的异步处理方式：</p>
+                <pre><code>function fetchData() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const data = { id: 1, name: 'Example' };
+            resolve(data);
+        }, 1000);
+    });
+}
+
+fetchData()
+    .then(data => console.log(data))
+    .catch(error => console.error(error));</code></pre>
+
+                <h2>3. Async/Await</h2>
+                <p>Async/Await 是建立在 Promise 基础上的语法糖，让异步代码看起来更像同步代码：</p>
+                <pre><code>async function getData() {
+    try {
+        const data = await fetchData();
+        console.log(data);
+    } catch (error) {
+        console.error(error);
+    }
+}</code></pre>
+
+                <blockquote>
+                    <p>提示：在实际开发中，我们应该根据具体场景选择合适的异步编程方式。对于简单的异步操作，回调函数可能就足够了；对于复杂的异步流程，Promise 和 Async/Await 会是更好的选择。</p>
+                </blockquote>
+
+                <h2>4. 实际应用场景</h2>
+                <p>让我们看看异步编程在实际项目中的应用：</p>
+                <ul>
+                    <li>API 请求处理</li>
+                    <li>文件操作</li>
+                    <li>数据库查询</li>
+                    <li>事件处理</li>
+                </ul>
+
+                <h2>5. 最佳实践</h2>
+                <p>在使用异步编程时，需要注意以下几点：</p>
+                <ol>
+                    <li>合理处理错误</li>
+                    <li>避免回调地狱</li>
+                    <li>注意内存泄漏</li>
+                    <li>考虑并发控制</li>
+                </ol>
+            </article>
+
+            <!-- 文章底部 -->
+            <footer class="article-footer">
+                <div class="article-tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">异步编程</span>
+                    <span class="tag">Promise</span>
+                    <span class="tag">Async/Await</span>
+                </div>
+                <div class="article-actions">
+                    <button class="action-btn"><i class="fas fa-thumbs-up"></i> 点赞 (128)</button>
+                    <button class="action-btn"><i class="fas fa-share"></i> 分享</button>
+                    <button class="action-btn"><i class="fas fa-bookmark"></i> 收藏</button>
+                </div>
+            </footer>
+
+            <!-- 相关文章 -->
+            <section class="related-articles">
+                <h2 class="section-title">相关文章</h2>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <img src="https://picsum.photos/800/400?random=2" alt="文章配图" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Promise 链式调用详解</h3>
+                            <p class="article-excerpt">深入理解 Promise 的链式调用机制，掌握异步操作的优雅处理方式。</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-user"></i> 李四</span>
+                                <span><i class="fas fa-calendar"></i> 2024-03-14</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <img src="https://picsum.photos/800/400?random=3" alt="文章配图" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Async/Await 实战技巧</h3>
+                            <p class="article-excerpt">分享 Async/Await 在实际项目中的应用技巧和注意事项。</p>
+                            <div class="article-meta">
+                                <span><i class="fas fa-user"></i> 王五</span>
+                                <span><i class="fas fa-calendar"></i> 2024-03-13</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 评论区 -->
+            <section class="comments">
+                <h2 class="section-title">评论 (23)</h2>
+                <form class="comment-form">
+                    <textarea class="form-input" placeholder="写下你的评论..."></textarea>
+                    <button type="submit" class="btn btn-primary">发表评论</button>
+                </form>
+                <div class="comments-list">
+                    <div class="comment">
+                        <img src="https://picsum.photos/100/100?random=2" alt="用户头像" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">李四</span>
+                                <span class="comment-date">2024-03-15 14:30</span>
+                            </div>
+                            <p class="comment-text">文章写得非常详细，对异步编程的讲解很到位，特别是 Promise 和 Async/Await 的对比部分，让我有了更深的理解。</p>
+                            <div class="comment-actions">
+                                <a href="#" class="comment-action"><i class="fas fa-thumbs-up"></i> 点赞 (12)</a>
+                                <a href="#" class="comment-action"><i class="fas fa-reply"></i> 回复</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <img src="https://picsum.photos/100/100?random=3" alt="用户头像" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-header">
+                                <span class="comment-author">王五</span>
+                                <span class="comment-date">2024-03-15 15:45</span>
+                            </div>
+                            <p class="comment-text">代码示例很清晰，如果能再多一些实际项目中的应用场景就更好了。期待作者的后续文章！</p>
+                            <div class="comment-actions">
+                                <a href="#" class="comment-action"><i class="fas fa-thumbs-up"></i> 点赞 (8)</a>
+                                <a href="#" class="comment-action"><i class="fas fa-reply"></i> 回复</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
     </main>
 
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-logo">
-            <img src="public/images/logo.png" alt="技术博客" />
-            <p>分享技术，成就未来</p>
-          </div>
-          <div class="footer-links">
-            <h3>快速链接</h3>
-            <ul>
-              <li><a href="index.html">首页</a></li>
-              <li><a href="articles.html">文章</a></li>
-              <li><a href="topic.html">专题</a></li>
-              <li><a href="member.html">会员中心</a></li>
-            </ul>
-          </div>
-          <div class="footer-contact">
-            <h3>联系我们</h3>
-            <p>邮箱：contact@techblog.com</p>
-            <p>微信公众号：技术博客</p>
-            <div class="social-icons">
-              <a href="#"><i class="icon-weibo"></i></a>
-              <a href="#"><i class="icon-wechat"></i></a>
-              <a href="#"><i class="icon-github"></i></a>
+    <!-- 尾部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="footer-logo-text">AUVWEB</span>
+                    <p class="footer-description">分享技术，记录成长</p>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/articles.html">文章</a></li>
+                        <li><a href="/topics.html">专题</a></li>
+                        <li><a href="/about.html">关于</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>技术分类</h3>
+                    <ul>
+                        <li><a href="/articles.html?category=frontend">前端开发</a></li>
+                        <li><a href="/articles.html?category=backend">后端开发</a></li>
+                        <li><a href="/articles.html?category=mobile">移动开发</a></li>
+                        <li><a href="/articles.html?category=ai">人工智能</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>联系我们</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@auvweb.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+86 123 4567 8900</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AUVWEB. All rights reserved.</p>
+            </div>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; 2023 技术博客. 保留所有权利.</p>
-        </div>
-      </div>
     </footer>
 
-    <!-- 登录弹窗 -->
-    <div id="login-modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>登录</h2>
-        <form id="login-form">
-          <div class="form-group">
-            <label for="username">用户名</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-          <div class="form-group">
-            <label for="password">密码</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <div class="form-group remember-me">
-            <input type="checkbox" id="remember" name="remember" />
-            <label for="remember">记住我</label>
-            <a href="#" class="forgot-password">忘记密码?</a>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">登录</button>
-        </form>
-        <div class="modal-footer">
-          <p>还没有账号? <a href="#" id="show-register">立即注册</a></p>
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">登录</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">邮箱</label>
+                        <input type="email" id="loginEmail" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">密码</label>
+                        <input type="password" id="loginPassword" name="password" class="form-input" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">登录</button>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
 
-    <script src="public/js/main.js"></script>
-    <script src="public/js/login.js"></script>
-  </body>
-</html>
+    <!-- 注册模态框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">注册</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="register-form">
+                    <div class="form-group">
+                        <label class="form-label" for="registerUsername">用户名</label>
+                        <input type="text" id="registerUsername" name="username" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="registerEmail">邮箱</label>
+                        <input type="email" id="registerEmail" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="registerPassword">密码</label>
+                        <input type="password" id="registerPassword" name="password" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/pages/article.js"></script>
+</body>
+</html> 

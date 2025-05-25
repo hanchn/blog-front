@@ -1,0 +1,182 @@
+/* 用户操作区域 */
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions-content {
+    display: flex;
+    align-items: center;
+}
+
+/* 未登录状态 */
+.user-actions-guest {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-text {
+    color: var(--color-text-secondary);
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.btn-text:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+}
+
+/* 已登录状态 */
+.user-actions-logged {
+    position: relative;
+}
+
+.user-avatar-wrapper {
+    position: relative;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+}
+
+.user-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.user-buttons-guest {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.user-buttons-logged {
+    display: flex;
+    align-items: center;
+}
+
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 8px 0;
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.user-avatar-wrapper:hover .user-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--color-text-primary);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--color-bg-secondary);
+    color: var(--color-primary);
+}
+
+.dropdown-item i {
+    width: 16px;
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+.dropdown-item:hover i {
+    color: var(--color-primary);
+}
+
+.text-link {
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.text-link:hover {
+    color: var(--color-primary);
+    background: rgba(var(--color-primary-rgb), 0.05);
+}
+
+.text-link:active {
+    transform: scale(0.98);
+}
+
+.text-divider {
+    color: var(--color-text-secondary);
+    font-size: 15px;
+    opacity: 0.5;
+    margin: 0 8px;
+    position: relative;
+    top: -1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .user-actions {
+        gap: 8px;
+    }
+
+    .user-actions-content {
+        gap: 8px;
+    }
+
+    .btn-text {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-buttons {
+        gap: 4px;
+    }
+
+    .user-buttons-guest {
+        gap: 4px;
+    }
+
+    .text-link {
+        font-size: 14px;
+        padding: 3px 6px;
+    }
+
+    .text-divider {
+        font-size: 14px;
+        margin: 0 6px;
+    }
+} 
