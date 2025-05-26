@@ -1,16 +1,27 @@
-<header class="site-header">
-  <div class="logo">
-    <i class="fas fa-blog"></i>
-    DemoBlog
+<header class="yt-header">
+  <div class="yt-header-left">
+    <a href="/" class="yt-logo">
+      <img src="/images/youtube-logo.png" alt="Logo" />
+      <span>DemoTube</span>
+    </a>
   </div>
-  <nav class="nav">
-    <a href="/">首页</a>
-    <a href="/about">关于</a>
-    <a href="/tags">标签</a>
-    <a href="/archive">归档</a>
-  </nav>
-  <div class="user-actions">
-    <a href="/login">登录</a>
-    <a href="/register" class="register-btn">注册</a>
+  <div class="yt-header-center">
+    <form class="yt-search-form" action="/search" method="get">
+      <input type="text" name="q" placeholder="搜索" class="yt-search-input" />
+      <button type="submit" class="yt-search-btn">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+  </div>
+  <div class="yt-header-right">
+    <a href="/upload" class="yt-header-icon" title="上传"
+      ><i class="fas fa-video"></i
+    ></a>
+    <a href="/notifications" class="yt-header-icon" title="通知"
+      ><i class="fas fa-bell"></i
+    ></a>
+    <a href="/user" class="yt-avatar">
+      <img src="/images/avatar.png" alt="用户头像" />
+    </a>
   </div>
 </header>
