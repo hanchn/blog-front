@@ -1,6 +1,12 @@
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
+import express from 'express';
+import path from 'path';
+import logger from 'morgan';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import indexRouter from './routes/index.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -19,7 +25,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // 路由
-const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 // 404 处理
@@ -39,4 +44,4 @@ app.listen(PORT, () => {
   console.log(`服务已启动：http://localhost:${PORT}`);
 });
 
-module.exports = app;
+export default app;
