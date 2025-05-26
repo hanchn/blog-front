@@ -1,0 +1,14 @@
+:root {
+  --color-primary: #ff0000;
+  --color-secondary: #232323;
+  --color-bg: #181818;
+  --color-bg-light: #212121;
+  --color-text: #f1f1f1;
+  --color-text-secondary: #bbb;
+  --color-link: #ff0000;
+  --color-link-hover: #c20000;
+  --border-radius: 8px;
+  --transition: 0.2s;
+  --header-height: 60px;
+  --sidebar-width: 220px;
+}

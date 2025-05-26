@@ -1,0 +1,12 @@
+<section class="article-list-page">
+  <h1>全部文章</h1>
+  <ul>
+    <% articles.forEach(function(article) { %>
+      <li>
+        <a href="/article/<%= article.id %>"><%= article.title %></a>
+        <span class="meta"><%= article.date %> · <%= article.author %></span>
+      </li>
+    <% }) %>
+  </ul>
+  <!-- 可添加分页组件 -->
+</section>

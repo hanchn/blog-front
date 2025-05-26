@@ -1,0 +1,71 @@
+@import url("./variables.css");
+
+.site-header {
+  background: var(--color-bg-light);
+  color: var(--color-text);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-footer {
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  padding: 32px 0;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.footer-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.footer-desc {
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+.footer-links {
+  margin-top: 8px;
+}
+.footer-links a {
+  color: var(--color-link);
+  margin: 0 8px;
+  font-size: 1rem;
+}
+.footer-links a:hover {
+  color: var(--color-link-hover);
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    height: auto;
+    padding: 8px 8px;
+  }
+  .nav {
+    margin: 8px 0;
+  }
+}

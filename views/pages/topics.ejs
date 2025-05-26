@@ -1,0 +1,8 @@
+<section class="topics-page">
+  <h1>专题列表</h1>
+  <div class="topics-list">
+    <% topics.forEach(function(topic) { %>
+      <a href="/topic/<%= topic.id %>" class="topic-item"><%= topic.name %></a>
+    <% }) %>
+  </div>
+</section>

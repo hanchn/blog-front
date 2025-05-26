@@ -1,0 +1,15 @@
+<article class="article-detail">
+  <h1><%= article.title %></h1>
+  <div class="meta">
+    作者：<%= article.author %> · <%= article.date %>
+  </div>
+  <div class="article-content">
+    <%- article.content %>
+  </div>
+  <div class="article-tags">
+    标签：
+    <% article.tags.forEach(function(tag) { %>
+      <a href="/tags/<%= tag %>" class="tag"><%= tag %></a>
+    <% }) %>
+  </div>
+</article>

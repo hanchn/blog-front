@@ -1,0 +1,19 @@
+<section class="user-center">
+  <div class="user-info">
+    <img src="<%= user.avatar %>" alt="头像" class="user-avatar" />
+    <h2><%= user.name %></h2>
+    <p>邮箱：<%= user.email %></p>
+    <p>注册时间：<%= user.registerDate %></p>
+  </div>
+  <div class="user-articles">
+    <h3>我的文章</h3>
+    <ul>
+      <% user.articles.forEach(function(article) { %>
+        <li>
+          <a href="/article/<%= article.id %>"><%= article.title %></a>
+          <span class="meta"><%= article.date %></span>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
