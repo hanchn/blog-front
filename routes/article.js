@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 router.get('/:id', (req, res) => {
   const article = {
@@ -13,4 +13,4 @@ router.get('/:id', (req, res) => {
   res.render('pages/article', { title: article.title, article, pageStyle: 'article' });
 });
 
-module.exports = router;
+export default router;

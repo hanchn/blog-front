@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 router.get('/', (req, res) => {
   const articles = [
@@ -13,4 +13,4 @@ router.get('/', (req, res) => {
   res.render('pages/home', { title: '首页', articles, topics, pageStyle: 'home' });
 });
 
-module.exports = router;
+export default router;

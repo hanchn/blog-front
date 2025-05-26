@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 router.get('/', (req, res) => {
   const topics = [
@@ -9,4 +9,4 @@ router.get('/', (req, res) => {
   res.render('pages/topics', { title: '专题列表', topics, pageStyle: 'topics' });
 });
 
-module.exports = router;
+export default router;

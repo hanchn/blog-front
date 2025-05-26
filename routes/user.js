@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+import { Router } from 'express';
+const router = Router();
 
 router.get('/', (req, res) => {
   const user = {
@@ -14,4 +14,4 @@ router.get('/', (req, res) => {
   res.render('pages/user', { title: '个人中心', user, pageStyle: 'user' });
 });
 
-module.exports = router;
+export default router;
