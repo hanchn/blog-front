@@ -1,0 +1,122 @@
+/* Import Common Styles */
+@import './common/variables.css';
+@import './common/reset.css';
+@import './common/utilities.css';
+
+/* Import Layout Styles */
+@import './layout/header.css';
+@import './layout/footer.css';
+
+/* Import Component Styles */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/modal.css';
+
+/* Import Page Styles */
+@import './pages/home.css';
+@import './pages/articles.css';
+@import './pages/article.css';
+@import './pages/topics.css';
+@import './pages/about.css';
+
+/* Global Styles */
+:root {
+  --header-height: 64px;
+  --footer-height: auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+main {
+  flex: 1;
+  margin-top: var(--header-height);
+  padding: var(--spacing-4) 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+/* Responsive Container Padding */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-3);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-2);
+  }
+}
+
+/* Toast Styles */
+.toast {
+  position: fixed;
+  bottom: var(--spacing-4);
+  right: var(--spacing-4);
+  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--error-color);
+  color: var(--text-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all var(--transition-base);
+  z-index: var(--z-toast);
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--spacing-4);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all var(--transition-base);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Error Message */
+.error-message {
+  color: var(--error-color);
+  font-size: var(--text-sm);
+  margin-top: var(--spacing-1);
+} 
