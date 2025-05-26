@@ -4,7 +4,7 @@ import logger from 'morgan';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import indexRouter from './routes/index.js';
-
+import engine from 'ejs-mate';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 设置视图引擎
 app.set('views', path.join(__dirname, 'views'));
+app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
 // 路由

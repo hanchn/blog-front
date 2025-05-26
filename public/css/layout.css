@@ -1,14 +1,12 @@
-@import url("./variables.css");
-
 .site-header {
-  background: var(--color-bg-light);
-  color: var(--color-text);
-  height: var(--header-height);
+  background: #212121;
+  color: #fff;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
 .logo {
@@ -31,8 +29,8 @@
 }
 
 .site-footer {
-  background: var(--color-bg);
-  color: var(--color-text-secondary);
+  background: #181818;
+  color: #bbb;
   padding: 32px 0;
   text-align: center;
   margin-top: 48px;
@@ -51,12 +49,12 @@
   margin-top: 8px;
 }
 .footer-links a {
-  color: var(--color-link);
+  color: #ff0000;
   margin: 0 8px;
   font-size: 1rem;
 }
 .footer-links a:hover {
-  color: var(--color-link-hover);
+  color: #c20000;
 }
 
 @media (max-width: 900px) {

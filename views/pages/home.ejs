@@ -1,3 +1,5 @@
+<%- include('../partials/header') %>
+<!-- 页面主体内容 -->
 <section class="home-banner">
   <h1>欢迎来到 DemoBlog</h1>
   <p>发现优质内容，分享你的知识与见解</p>
@@ -6,10 +8,10 @@
   <h2>最新文章</h2>
   <ul>
     <% articles.forEach(function(article) { %>
-      <li>
-        <a href="/article/<%= article.id %>"><%= article.title %></a>
-        <span class="meta"><%= article.date %> · <%= article.author %></span>
-      </li>
+    <li>
+      <a href="/article/<%= article.id %>"><%= article.title %></a>
+      <span class="meta"><%= article.date %> · <%= article.author %></span>
+    </li>
     <% }) %>
   </ul>
 </section>
@@ -17,7 +19,8 @@
   <h2>热门专题</h2>
   <div class="topics-list">
     <% topics.forEach(function(topic) { %>
-      <a href="/topic/<%= topic.id %>" class="topic-item"><%= topic.name %></a>
+    <a href="/topic/<%= topic.id %>" class="topic-item"><%= topic.name %></a>
     <% }) %>
   </div>
 </section>
+<%- include('../partials/footer') %>
